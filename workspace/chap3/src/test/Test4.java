@@ -12,11 +12,6 @@ public class Test4 {
 		int f = scanner.nextInt();
 		int d = scanner.nextInt();
 		
-		if(f > d) {
-			System.out.println(f);
-		} else {
-			System.out.println(d);
-		}
-		
+		System.out.println(f > d ? f : d);
 	}
 }
