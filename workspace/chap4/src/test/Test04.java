@@ -25,7 +25,7 @@ public class Test04 {
         if (ud > sd) {
             System.out.println(" => 사용자 승리");
         } else if (ud < sd) {
-            System.out.println(" => 사용자 패배");
+            System.out.println(" => 시스템 승리");
         } else {
             System.out.println(" => 무승부");
         }
