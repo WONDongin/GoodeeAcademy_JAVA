@@ -13,49 +13,22 @@ package test;
 */
 public class Test04 {
 	public static void main(String[] args) {
-		int men = (int) (Math.random() * 6) + 1;
-		
-		switch (men) {
-			case 1 : System.out.print("사용자 주사위값: 1");break;
-			case 2: System.out.print("사용자 주사위값: 2");break;
-			case 3: System.out.print("사용자 주사위값: 3");break;
-			case 4: System.out.print("사용자 주사위값: 4");break;
-			case 5: System.out.print("사용자 주사위값: 5");break;
-			case 6: System.out.print("사용자 주사위값: 6");break;
-		}
-		
-		int ai = (int) (Math.random() * 6) + 1;
-		
-		switch (ai) {
-			case 1 : System.out.print("시스템 주사위값: 1");break;
-			case 2: System.out.print("시스템 주사위값: 2");break;
-			case 3: System.out.print("시스템 주사위값: 3");break;
-			case 4: System.out.print("시스템 주사위값: 4");break;
-			case 5: System.out.print("시스템 주사위값: 5");break;
-			case 6: System.out.print("시스템 주사위값: 6");break;
-		}
-		
-		switch (ai) {
-			case 1 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" => 사용자 패배");}
-							break;
-			case 2 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" => 사용자 패배");}
-							break;
-			case 3 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" => 사용자 패배");}
-							break;
-			case 4 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" => 사용자 패배");}
-							break;
-			case 5 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" =>사용자 패배");}
-							break;
-			case 6 : if(men > ai) {System.out.println(" => 사용자 승리");}
-							if(men < ai) {System.out.println(" => 사용자 패배");}
-							break;
-		}
-		
+	
+        int ud = (int) (Math.random() * 6) + 1;
+        int sd = (int) (Math.random() * 6) + 1;
+
+      
+        System.out.print("사용자 주사위값: " + ud + ", ");
+        System.out.print("시스템 주사위값: " + sd);
+
+        
+        if (ud > sd) {
+            System.out.println(" => 사용자 승리");
+        } else if (ud < sd) {
+            System.out.println(" => 사용자 패배");
+        } else {
+            System.out.println(" => 무승부");
+        }
 		
 	}
 }

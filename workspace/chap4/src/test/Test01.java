@@ -20,12 +20,11 @@ public class Test01 {
 		Scanner scanner = new Scanner(System.in);
 		int  year =  scanner.nextInt();
 		
-		if(year % 4 == 0 ) {
-			if( year % 400 ==0 || !(year % 100 == 0)) {
-				System.out.println("윤년");
-			}
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+		    System.out.println("윤년");
 		} else {
-			System.out.println("평년");
+		    System.out.println("평년");
 		}
+
 	}
 }

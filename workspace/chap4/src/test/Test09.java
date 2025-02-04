@@ -13,25 +13,27 @@ import java.util.Scanner;
 public class Test09 {
 	public static void main(String[] args) {
 		System.out.print("정수를 입력하세요: ");
+		
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
-		
-		int sum = 0;
 		
 		if(num < 0) {
 			System.out.println("잘못 입력하셨습니다.");
 			return;
-		} else {
-			for(int i = 1; i <= num; i++) {
-				if(num <= i) {
-					System.out.print(i + "=");
-				} else {
-					System.out.print(i + "+");
-				}
-				sum += i;
-			} 
-		}
+		} 
 		
-		System.out.println(sum);
+		int sum = 0;
+		StringBuilder expression = new StringBuilder();
+		
+		for(int i = 1; i <= num; i++) {
+			sum += i;
+			expression.append(i);
+			
+			if(i < num) {
+				expression.append("+");
+			}
+		} 
+		
+		System.out.println(expression + " = " + sum);
 	}
 }

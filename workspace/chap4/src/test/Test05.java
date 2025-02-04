@@ -21,10 +21,7 @@ public class Test05 {
 		System.out.print("등차: ");
 		int num2 = scanner.nextInt();
 		
-		int remix = num2 +10;
-		
-		for(int i = num1; i <= remix; i++ ) {
-			
+		for(int i = 0; i < 10; i++ ) {
 			System.out.print( num1 + " ");
 			num1 += num2;
 		}

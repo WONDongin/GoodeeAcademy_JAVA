@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class Test08 {
 	public static void main(String[] args) {
 		System.out.print("한개의 숫자 입력: ");
+		
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
 		
@@ -22,10 +23,10 @@ public class Test08 {
 			System.out.println("잘못 입력하셨습니다.");
 		}  else {
 			for(int i = 1; i <= num; i++) {
-				if(num <= i) {
-					System.out.print(i + "");
-				} else {
-					System.out.print(i + ",");
+				System.out.print(i);
+				
+				if(i < num) {
+					System.out.print(", ");
 				}
 			} 
 		}

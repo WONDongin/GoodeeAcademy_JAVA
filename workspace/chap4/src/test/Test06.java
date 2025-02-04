@@ -18,22 +18,26 @@ public class Test06 {
 		Scanner scan = new Scanner(System.in);
 		int score = scan.nextInt();
 		
-		if(score >= 95 ) {
-			System.out.println("A+");
+		String grade;
+		
+		if (score >= 95) {
+		    grade = "A+";
 		} else if (score >= 90) {
-			System.out.println("A0");
+		    grade = "A0";
 		} else if (score >= 85) {
-			System.out.println("B+");
+		    grade = "B+";
 		} else if (score >= 80) {
-			System.out.println("B0");
+		    grade = "B0";
 		} else if (score >= 75) {
-			System.out.println("C+");
+		    grade = "C+";
 		} else if (score >= 65) {
-			System.out.println("D+");
+		    grade = "D+";
 		} else if (score >= 60) {
-			System.out.println("D0");
+		    grade = "D0";
 		} else {
-			System.out.println("F");
+		    grade = "F";
 		}
+		
+		System.out.println(grade);
 	}
 }
