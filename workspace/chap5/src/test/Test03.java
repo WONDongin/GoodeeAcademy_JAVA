@@ -12,23 +12,19 @@ package test;
 6*3=18	7*3=21	8*3=24	9*3=27	
 ......  ......  ......  ......
 6*8=48	7*8=56	8*8=64	9*8=72	
-6*9=54	7*9=63	8*9=72	9*9=81	 * 
+6*9=54	7*9=63	8*9=72	9*9=81	 
  */
 public class Test03 {
 	public static void main(String[] args) {
-		for(int i = 2; i <= 9; i++) {
-			for(int j = 2; j <= 5; j++){
-				System.out.printf("%d * %d = %2d\t", j, i, i*j);
+		for(int i = 2; i <= 9; i+=4) {
+			for(int j = 2; j <= 9; j++) {
+				for(int k = i; k < i + 4 && k <= 9; k++) {
+					System.out.printf("%d * %d = %-4d", k, j, k*j);
+				}
+				System.out.println();
 			}
 			System.out.println();
 		}
-		System.out.println();
 		
-		for(int i = 2; i <= 9; i++) {
-			for(int j = 6; j <= 9; j++){
-				System.out.printf("%d * %d = %2d\t", j, i, i*j);
-			}
-			System.out.println();
-		}
 	}
 }

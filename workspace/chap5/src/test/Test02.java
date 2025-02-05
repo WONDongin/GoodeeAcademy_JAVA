@@ -1,7 +1,6 @@
 package test;
 
 import java.util.Scanner;
-
 /*
  * 숫자 맞추기
  * 컴퓨터가 1~100 사이의 임의의 정수를 저장하고,
@@ -24,7 +23,6 @@ public class Test02 {
 		int random = (int) (Math.random()*100);
 		
 		System.out.println("1~100 사이의 숫자를 입력하세요");
-		
 		Scanner scanner = new Scanner(System.in);
 		
 		while (true) {
@@ -32,12 +30,8 @@ public class Test02 {
 			
 			if(random > num ) {
 				System.out.println("작은수 입니다.");
-				scanner.nextLine();
-				
 			} else if (random < num) {
 				System.out.println("큰 수 입니다.");
-				scanner.nextLine();
-				
 			} else if (random == num) {
 				System.out.println("정답입니다.");
 				break;

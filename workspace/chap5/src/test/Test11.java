@@ -1,9 +1,7 @@
 package test;
 
 import java.util.Scanner;
-
 /*
-
 10진수를 2,8,10,16 진수로 변경하기
 [결과]
 10진수 값을 입력하세요
@@ -13,7 +11,6 @@ import java.util.Scanner;
 16의 8진수 :20
 16의 10진수 :16
 16의 16진수 :10
-
 */
 public class Test11 {
 	public static void main(String[] args) {
@@ -26,6 +23,5 @@ public class Test11 {
 		System.out.println(num +"의 8진수 : " +  Integer.toOctalString(num)); 
 		System.out.println(num +"의 10진수 : " +  Integer.toString(num)); 
 		System.out.println(num +"의 16진수 : " +  Integer.toHexString(num)); 
-
 	}
 }
