@@ -19,10 +19,13 @@ public class Test05 {
 			sb.append(")");			
 			sum += i * (i + 1) / 2;
 			
-			if(i < 10) {sb.append("+");}
+			if(i < 10) {
+				sb.append("+");
+			} else {
+				sb.append("=").append(sum);
+			}
 		}
 		
-		sb.append("=").append(sum);
 		System.out.println(sb);
 	}
 }

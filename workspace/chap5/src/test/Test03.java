@@ -17,6 +17,10 @@ package test;
 public class Test03 {
 	public static void main(String[] args) {
 		for(int i = 2; i <= 9; i+=4) {
+			for(int s =0; s < 4; s++) {
+				System.out.print((i + s) + "단\t");
+			}
+			System.out.println();
 			for(int j = 2; j <= 9; j++) {
 				for(int k = i; k < i + 4 && k <= 9; k++) {
 					System.out.printf("%d * %d = %-4d", k, j, k*j);
