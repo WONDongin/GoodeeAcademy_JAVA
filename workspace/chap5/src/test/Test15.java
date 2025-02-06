@@ -21,15 +21,50 @@ package test;
  */
 public class Test15 {
 	public static void main(String[] args) {
+		// 5x3 배열 (3행 , 5열)
 		int[][] score = {
-				{90,80,70},
-				{95,85,75},
-				{70,80,75},
-				{75,70,85},
-				{70,75,80}
-		}; 
+                {90, 80, 70},
+                {95, 85, 75},
+                {70, 80, 75},
+                {75, 70, 85},
+                {70, 75, 80}
+        };
 		
-		
+		// result 배열 선언
+        int rows = score.length; // 헹의 개수
+        int cols = score[0].length; // 열의 개수
+        // 기존보다 +1 배열생성
+        int[][] result = new int[rows + 1][cols + 1];
+
+        // score = result 배열복사
+        for (int i = 0; i < rows; i++) {
+            int rowSum = 0;
+            for (int j = 0; j < cols; j++) {
+            	// 배열복사
+                result[i][j] = score[i][j];
+                // 행 총합
+                rowSum += score[i][j];
+            }
+            // 각 행의 마지막 열에 저장
+            result[i][cols] = rowSum; 
+        }
+
+        // 열 합 계산
+        for (int j = 0; j < cols + 1; j++) {
+            int colSum = 0;
+            for (int i = 0; i < rows; i++) {
+                colSum += result[i][j];
+            }
+            result[rows][j] = colSum; 
+        }
+
+        // result 배열 출력
+        for (int i = 0; i < rows + 1; i++) {
+            for (int j = 0; j < cols + 1; j++) {
+                System.out.printf("%4d ", result[i][j]);
+            }
+            System.out.println();
+        }
 		
 	}
 }

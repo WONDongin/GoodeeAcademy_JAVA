@@ -41,46 +41,68 @@ score[4]:95
 */
 public class Test16 {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int score[] = null;
-		int mam = 0;
-		int max = 0;
+		Scanner scanner = new Scanner(System.in);
+        int[] scores = null;
+        int studentCount = 0;
+        
+        while (true) {
+            System.out.println("--------------------");
+            System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+            System.out.println("--------------------");
+            System.out.print("선택>");
+            
+            int choice = scanner.nextInt();
+            
+            if (choice == 1) {
+                System.out.print("학생수>");
+                studentCount = scanner.nextInt();
+                // 학생수 만큼 배열생성
+                scores = new int[studentCount];
+            } else if (choice == 2) {
+                if (scores == null) {
+                    System.out.println("먼저 학생 수를 입력하세요.");
+                    continue;
+                }
+                // 점수저장
+                for (int i = 0; i < scores.length; i++) {
+                    System.out.print("scores[" + i + "]>");
+                    scores[i] = scanner.nextInt();
+                }
+            } else if (choice == 3) {
+            	// 배열출력
+                if (scores == null) {
+                    System.out.println("점수를 먼저 입력하세요.");
+                    continue;
+                }
+                for (int i = 0; i < scores.length; i++) {
+                    System.out.println("score[" + i + "]: " + scores[i]);
+                }
+            } else if (choice == 4) {
+                if (scores == null) {
+                    System.out.println("점수를 먼저 입력하세요.");
+                    continue;
+                }
+                // 최대 점수
+                int maxScore = scores[0];
+                int sum = 0;
+                for (int score : scores) {
+                    if (score > maxScore) {
+                        maxScore = score;
+                    }
+                    sum += score;
+                }
+                // 평균
+                double avgScore = (double) sum / scores.length;
+                System.out.println("최고 점수:" + maxScore);
+                System.out.println("평균 점수:" + avgScore);
+            } else if (choice == 5) {
+                System.out.println("프로그램 종료");
+                break;
+            } else {
+                System.out.println("올바른 선택이 아닙니다. 다시 입력하세요.");
+            }
+        }
+        scanner.close();
 
-		System.out.println("--------------------");
-		System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
-		System.out.println("--------------------");
-
-
-		while(true) {
-			System.out.print("선택> ");
-			
-			int menu = scan.nextInt();
-			scan.nextLine();
-			
-			if(menu == 1) {
-				System.out.print("학생수: ");
-				int man = scan.nextInt();
-				score = new int[man];
-
-			} else if (menu == 2) {
-				for(int i = 0; i <= score.length; i++) {
-					System.out.print("score[" + i + "]: ");
-					int scores = scan.nextInt();
-				}
-			} else if (menu == 3) {
-				for(int i= 0; i <= score.length; i++) {
-					System.out.print( score[i]);
-				}
-			} else if (menu == 4) {
-				int sum = 0;
-				
-			} else if (menu == 5) {
-				System.out.println(5);
-			} else {
-				System.out.println("다시 입력해주세요.");
-			}			
-		}
-
-		
 	}
 }
