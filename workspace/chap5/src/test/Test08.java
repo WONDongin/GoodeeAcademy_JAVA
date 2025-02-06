@@ -39,11 +39,11 @@ public class Test08 {
 
         // 아래쪽 
         for (int i = height / 2 - 1; i >= 0; i--) {
-            // 공백 출력
+           
         	for(int j = 0; j < i; j++) {
         		System.out.print(" ");
         	}
-            // 별 출력
+           
            for(int j = 0; j < height - 2 * i; j++) {
         	   System.out.print("*");
            }

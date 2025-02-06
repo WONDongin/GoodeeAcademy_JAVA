@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class Test02 {
 	public static void main(String[] args) {
-		int random = (int) (Math.random()*100);
+		int random = (int) (Math.random()*100) + 1;
 		
 		System.out.println("1~100 사이의 숫자를 입력하세요");
 		Scanner scanner = new Scanner(System.in);
@@ -37,6 +37,7 @@ public class Test02 {
 				break;
 			}
 			
+			System.out.println("프로그램 종료");
 		}
 	}
 }

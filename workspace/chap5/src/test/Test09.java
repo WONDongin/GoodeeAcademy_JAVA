@@ -26,5 +26,7 @@ public class Test09 {
     public static boolean isPalindrome(String number) {
         String reversed = new StringBuilder(number).reverse().toString();
         return number.equals(reversed);
+        
+        // while 문으로 값을 복사(temp) 해서 작성할수있다. 
     }
 }

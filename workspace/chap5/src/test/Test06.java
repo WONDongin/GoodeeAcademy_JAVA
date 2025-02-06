@@ -22,6 +22,11 @@ public class Test06 {
         for(int i = 1; i <= height; i++) {
         	for(int j = 0; j < height - i; j++) {
         		System.out.print("\t");
+        		// System.out.printf("%4d", num);
+        		
+        		// %4d : 출력서식문자. %nd : n자리를 확보해서 10진 정수 출력
+        		// %4c : %nc :  n자리만큼 문자출력
+        		// %4s : %ns :  n자리를 확보해서 문자열출력
         	}
         	for(int j = 0; j < 2 * i - 1; j++) {
         		System.out.print(num-- + "\t");
