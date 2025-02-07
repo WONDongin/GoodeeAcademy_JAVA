@@ -29,7 +29,7 @@ public class Test14 {
         // num1 , num2 의 공약수 구하기
         for (int i = 1; i <= min; i++) {
         	// num % i == 0 (약수 공식)
-            if (num1 % i == 0 && num2 % i == 0) {
+            if (num1 % i == 0 && num2 % i == 0) { // 공약수
                 System.out.print(i);
                 if (i != min) {
                     System.out.print(",");

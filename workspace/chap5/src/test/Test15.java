@@ -21,7 +21,7 @@ package test;
  */
 public class Test15 {
 	public static void main(String[] args) {
-		// 5x3 배열 (3행 , 5열)
+		// 5x3 배열 (5행 , 3열)
 		int[][] score = {
                 {90, 80, 70},
                 {95, 85, 75},
@@ -35,6 +35,7 @@ public class Test15 {
         int cols = score[0].length; // 열의 개수
         // 기존보다 +1 배열생성
         int[][] result = new int[rows + 1][cols + 1];
+        //[scor.length + 1]
 
         // score = result 배열복사
         for (int i = 0; i < rows; i++) {
@@ -47,6 +48,7 @@ public class Test15 {
             }
             // 각 행의 마지막 열에 저장
             result[i][cols] = rowSum; 
+            // [score[i].length]
         }
 
         // 열 합 계산
@@ -60,6 +62,7 @@ public class Test15 {
 
         // result 배열 출력
         for (int i = 0; i < rows + 1; i++) {
+        						// [score[i] +1 ]
             for (int j = 0; j < cols + 1; j++) {
                 System.out.printf("%4d ", result[i][j]);
             }

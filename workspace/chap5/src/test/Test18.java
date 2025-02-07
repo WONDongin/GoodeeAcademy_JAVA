@@ -1,4 +1,7 @@
 package test;
+
+import java.util.Scanner;
+
 /*
 11*11 크기의 사각형이 있다고 가정할때 다음 결과를 출력되도록 프로그램 작성하기
 
@@ -19,7 +22,13 @@ X□■□■□■□■□X
 */
 public class Test18 {
 	public static void main(String[] args) {
-		int size = 5;
+		
+		// 사용자 입력받기
+		System.out.println("홀수만 입력하세요.");
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+				
+		int size = num;
         char[][] grid = new char[size][size];
 
         // 배열 초기화 및 패턴 적용
@@ -29,6 +38,9 @@ public class Test18 {
             	 	X---------X
             	 	-X-------X-
             	 	--X-----X--
+            	 	---X---X---
+            	 	----X-X----
+            	 	------X-----
             	 	
             	 	i == j : 왼쪽 위 -> 오른쪽 아래 대각선(\방향)
             	 	 - x좌표 : (0,0)(1,1)(2,2)...

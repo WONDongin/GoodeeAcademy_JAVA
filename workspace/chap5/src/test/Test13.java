@@ -12,7 +12,7 @@ public class Test13 {
             System.out.println("숫자를 입력하세요.");
             return;
         }
-		// parseInt() : 타입이 String(문자열) -> int(정수) 로 변환(예외 처리 없음)
+		
 		/* 
 		 	Integer : 
 		 	- 매개변수로 객체를 필요로 할 때
@@ -20,7 +20,8 @@ public class Test13 {
 			- 객채 간 비교가 필요할 때
 		*/
         int num = Integer.parseInt(args[0]);
-
+        // parseInt() : 타입이 String(문자열) -> int(정수) 로 변환(예외 처리 없음)
+        
         System.out.print(num + "의 약수 : ");
         
         for (int i = 1; i <= num; i++) {
