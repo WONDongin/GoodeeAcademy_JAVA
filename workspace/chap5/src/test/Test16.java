@@ -2,6 +2,8 @@ package test;
 
 import java.util.Scanner;
 
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
+
 /*
 [결과]
 --------------------
@@ -41,11 +43,12 @@ score[4]:95
 */
 public class Test16 {
 	public static void main(String[] args) {
+		boolean run = true;
 		Scanner scanner = new Scanner(System.in);
-        int[] scores = null;
+        int[] scores = null; // 참조변수 선언. 배열생성x
         int studentCount = 0;
         
-        while (true) {
+        while (run) {
             System.out.println("--------------------");
             System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
             System.out.println("--------------------");
@@ -58,6 +61,7 @@ public class Test16 {
                 studentCount = scanner.nextInt();
                 // 학생수 만큼 배열생성
                 scores = new int[studentCount];
+                
             } else if (choice == 2) {
                 if (scores == null) {
                     System.out.println("먼저 학생 수를 입력하세요.");
@@ -66,8 +70,9 @@ public class Test16 {
                 // 점수저장
                 for (int i = 0; i < scores.length; i++) {
                     System.out.print("scores[" + i + "]>");
-                    scores[i] = scanner.nextInt();
+                    scores[i] = scanner.nextInt(); // 배열에 점수입력
                 }
+                
             } else if (choice == 3) {
             	// 배열출력
                 if (scores == null) {
@@ -77,6 +82,7 @@ public class Test16 {
                 for (int i = 0; i < scores.length; i++) {
                     System.out.println("score[" + i + "]: " + scores[i]);
                 }
+                
             } else if (choice == 4) {
                 if (scores == null) {
                     System.out.println("점수를 먼저 입력하세요.");
@@ -95,9 +101,10 @@ public class Test16 {
                 double avgScore = (double) sum / scores.length;
                 System.out.println("최고 점수:" + maxScore);
                 System.out.println("평균 점수:" + avgScore);
+                
             } else if (choice == 5) {
                 System.out.println("프로그램 종료");
-                break;
+                run = false;
             } else {
                 System.out.println("올바른 선택이 아닙니다. 다시 입력하세요.");
             }
