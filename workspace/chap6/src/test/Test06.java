@@ -14,32 +14,32 @@ youCoin 승리
 */
 public class Test06 {
 	public static void main(String[] args) {
-		Coin coin = new Coin();
-		coin.name = "me";
-		
-		Coin coin2 = new Coin();
-		coin2.name = "you";
-		
-		
-		int count = 0;
-		
-		while(true) {
-			coin.flip();
-			
-			if(coin.side == 0) {
-				System.out.println("앞면");
-				count++;
-				if(count == 3) {
-					System.out.println(coin.name + "승리");
-					break;
-				}
-			} else {
-				System.out.println("뒷면");
-			}
-		}
-		
-		
-		
-		
+		 Coin myCoin = new Coin();
+	     Coin youCoin = new Coin();
+
+	     int myCount = 0, youCount = 0; // 연속 앞면 횟수 저장
+	        
+	     System.out.println("myCoin\tyouCoin");
+
+	     while (true) {
+	         myCoin.flip();
+	         youCoin.flip();
+
+	         System.out.println(" " + myCoin.getSideString() + "\t" + youCoin.getSideString());
+
+	         // myCoin이 앞면이면 카운트 증가, 아니면 초기화
+	         myCount = (myCoin.side == 0) ? myCount + 1 : 0;
+	         // youCoin이 앞면이면 카운트 증가, 아니면 초기화
+	         youCount = (youCoin.side == 0) ? youCount + 1 : 0;
+
+	         // 3번 연속 앞면이 나오면 종료
+	         if (myCount == 3) {
+	             System.out.println("myCoin 승리!");
+	             break;
+	         } else if (youCount == 3) {
+	             System.out.println("youCoin 승리!");
+	             break;
+	         }
+	     }
 	}
 }
