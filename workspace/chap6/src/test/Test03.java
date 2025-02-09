@@ -8,18 +8,18 @@ package test;
 */
 class Coin{
 	
-	int  side;
-	String name;
+	public int  side;
 	
 	public int  flip() {
-		int radom = (int)  (Math.random() * 2);
-		side = radom;
+		side = (int) (Math.random() * 2);
 		return side;
-	} 
-	
-	public void win() {
-		System.out.println();
 	}
+	
+	// 현재 동전 면을 문자열로 반환하는 메서드
+    public String getSideString() {
+        return side == 0 ? "앞면" : "뒷면";
+    }
+	
 }
 public class Test03 {
 	public static void main(String[] args) {
