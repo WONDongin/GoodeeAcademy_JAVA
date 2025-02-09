@@ -24,9 +24,9 @@ class Coin{
 public class Test03 {
 	public static void main(String[] args) {
 		Coin coin = new Coin();
-		System.out.println(coin.side==0?"앞면":"뒷면");
+		System.out.println(coin.getSideString());
 		coin.flip();
-		System.out.println(coin.side==0?"앞면":"뒷면");
+		System.out.println(coin.getSideString());
 		
 	}
 }

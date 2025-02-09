@@ -13,10 +13,15 @@ package test;
      맛있게 얌얌   
 */
 class Animal{
-	String name = "원숭이";
-	int age = 20;
+	String name;
+	int age;
+	    
+	Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 	
-	public static void eat() {
+	void eat() {
 		System.out.println("맛있게 얌얌");
 	}
 	
@@ -26,8 +31,8 @@ class Animal{
 }
 public class Test02 {
 	public static void main(String[] args) {
-		Animal an = new Animal();
-		System.out.println(an);
-		Animal.eat();
+		Animal monkey = new Animal("원숭이", 20);
+		System.out.println(monkey);
+		monkey.eat();
 	}
 }

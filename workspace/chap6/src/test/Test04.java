@@ -18,12 +18,13 @@ class Student{
 	String name;
 	int ban, no, kor, eng, math;
 	
+	// 총점
 	public int  getTotal() {
 		int sum = 0;
 		sum = kor + eng + math;
 		return sum;
 	}
-	
+	// 평균
 	public double  getAverage() {
 		double avg = 0;
 		avg = (kor + eng + math) / 3;
