@@ -25,10 +25,8 @@ class Student{
 		return sum;
 	}
 	// 평균
-	public double  getAverage() {
-		double avg = 0;
-		avg = (kor + eng + math) / 3;
-		return avg;
+	public float  getAverage() {
+		return getTotal() / 3f;
 	}
 }
 public class Test04 {
