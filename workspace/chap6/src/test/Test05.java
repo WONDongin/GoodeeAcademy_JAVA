@@ -23,14 +23,14 @@ package test;
  */
 class School {
     String name;
-    Student2[] students;
+    Student2[] students; // 배열타입
 }
 
 
 class Student2 {
     String stuNo;
     String name;
-    Score score;
+    Score score; // 점수를 객체로
 }
 
 
@@ -44,7 +44,7 @@ public class Test05 {
 		// School 객체 생성
         School school = new School();
         school.name = "구디초";
-        school.students = new Student2[3];
+        school.students = new Student2[3]; //Student2 객체가 아님, Student2 참조 변수의 배열
 
         for (int i = 0; i < school.students.length; i++) {
             // Student2 객체 생성

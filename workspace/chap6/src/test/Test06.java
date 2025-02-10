@@ -22,7 +22,7 @@ public class Test06 {
 	     System.out.println("myCoin\tyouCoin");
 
 	     while (true) {
-	         myCoin.flip();
+	         myCoin.flip(); // 동전의 면을 변경
 	         youCoin.flip();
 
 	         System.out.println(" " + myCoin.getSideString() + "\t" + youCoin.getSideString());
@@ -38,6 +38,9 @@ public class Test06 {
 	             break;
 	         } else if (youCount == 3) {
 	             System.out.println("youCoin 승리!");
+	             break;
+	         } else if (youCount == 3 && myCount == 3) {
+	             System.out.println("비김");
 	             break;
 	         }
 	     }
