@@ -8,7 +8,6 @@ package test;
    멤버메서드 : void flip()
                 Math.random() 메서드를 사용하여 side를 결정.
 
-
   [결과]
 Coin 객체 생성 :1번 동전 : 앞면
 flip() 실행 후 :1번 동전 : 뒷면
@@ -38,26 +37,24 @@ flip 후 뒷면 동전의 갯수 :6
 class Coin{
 	int side, serialNo;
 	static int sno;
-	
-	Coin(int serialNo, int side){
-		this.serialNo = serialNo;
+	// 생성자
+	Coin(int side){
 		this.side = side;
-		serialNo = sno++;
+        serialNo = sno++;
 	}
-	
-
-	public Coin(int side2) {
-		
-	}
-
-
-
-	void flip() {
-		int side = (int)(Math.random() * 2);
-		System.out.println(side == 0 ? "앞면" : "뒷면");
-	}
-	
+	// flip() 메서드: 동전을 랜덤으로 뒤집음
+    void flip() {
+        side = (int) (Math.random() * 2);
+    }
+    
+    // toString() 오버라이드: 동전 정보를 문자열로 반환
+    @Override
+    public String toString() {
+        return serialNo + "번 동전 : " + (side == 0 ? "앞면" : "뒷면");
+    }
+    
 }
+
 public class Test02 {
 	public static void main(String[] args) {
 		Coin[] coinarr = new Coin[10];

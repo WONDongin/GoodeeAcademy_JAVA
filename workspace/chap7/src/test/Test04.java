@@ -1,7 +1,5 @@
 package test;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
-
 /*
  * 원(Circle) 클래스 구현하기
  *  1. 멤버변수
@@ -19,43 +17,46 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 class Circle{
 	double r;
 	int x, y, no;
-	static int plus;
+	static int count;
 	
-	Circle(int r, int x, int y){
+	// carr[0]
+	Circle(double r, int x, int y){
 		this.r = r;
 		this.x = x;
 		this.y = y;
-		no = plus++;
+		no = count++;
 	}
-	
-	Circle( int x, int y){
+	// carr[1]
+	Circle(int x, int y){
 		this(1, x, y);
 	}
-	
-	Circle( int r){
+	// carr[2]
+	Circle(double r){
 		this(r, 0, 0);
 	}
-	
+	// 원 이동
 	void move(int a, int b) {
-		x = x + a ;
-		y = y + b;
+		x += a ;
+		y += b;
 	}
-	
+	// 반지름 확대/축소
 	 void scale(double m) {
-		 r = r*m;
+		r = r*m;
 	 }
-	
-	double result1() {
-		return r * r * Math.PI;
+	// 넓이
+	double area() {
+		return Math.PI * r * r;
+	}
+	// 둘레
+	double length() {
+		return 2 * Math.PI * r;
 	}
 	
-	double result2() {
-		return r * (2 * Math.PI);
-	}
-	
-	public String toString() {
-		return no + "번원 : 반지름:" + r +", 좌표:(" + x  + ", " + y +"), 넓이: " + result1() + ", 둘레:" + result2();
-	}
+	// toString 메서드 오버라이드
+    @Override
+    public String toString() {
+        return String.format("%d번 원 : 반지름:%.1f, 좌표:(%d,%d), 넓이:%.3f, 둘레:%.3f", no, r, x, y, area(), length());
+    }
 	
 }
 public class Test04 {

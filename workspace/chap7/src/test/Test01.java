@@ -21,34 +21,37 @@ package test;
  */
 class Student{
 	String name;
-	int no, kor, eng, math, sum;
-	double avg;
+	int id, kor, eng, math;
 	static int pluss;
-
-	Student(String name, int no) {
-		this.name = name;
-		this.no = no;
-		no = pluss++;
-	}
 	
-	Student(String name, int no, int kor, int eng, int math ) {
-		this(name, no);
+	// 첫 번째 생성자: 이름과 학번만 받음
+	Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+		this.kor = 0;
+        this.eng = 0;
+        this.math = 0;
+		id = pluss++;
+	}
+	// 두 번째 생성자: 이름, 학번과 국어, 영어, 수학 점수까지 받음
+	Student(String name, int id, int kor, int eng, int math ) {
+		this(name, id);
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
 	}
-	
+	// 총점
 	int sum() {
 		return kor + eng + math;
 	}
+	// 평균
 	double avg() {
-		return (kor + eng + math) / 3;
+		return (kor + eng + math) / 3.0;
 	}
-	
+	// 학생 정보 출력 메서드
 	void info() {
-		System.out.println( "학번:" + no + "\n이름:" + name + "\n국어:" + kor + "\n영어:" + eng + "\n수학:" + math + "\n총점:" + sum() + "\n평균:" + avg() + "" + "\n=====================");
+		System.out.println( "학번:" + id + "\n이름:" + name + "\n국어:" + kor + "\n영어:" + eng + "\n수학:" + math + "\n총점:" + sum() + "\n평균:" + avg() + "" + "\n=====================");
 	}
-	
 	
 }
 
