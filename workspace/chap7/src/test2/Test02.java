@@ -25,20 +25,90 @@ package test2;
 
 import java.util.Date;
 
+abstract class Employee {
+    String type;
+    String name;
+    String address;
+    String department;
+    
+    public Employee(String type, String name, String address, String department) {
+        this.type = type;
+        this.name = name;
+        this.address = address;
+        this.department = department;
+    }
+    
+    abstract long getPay();
+}
+
+class FormalEmployee extends Employee {
+    String empId;
+    String position;
+    long annualSalary;
+    
+    public FormalEmployee(String name, String address, String department, String empId, String position, long annualSalary) {
+        super("정규직", name, address, department);
+        this.empId = empId;
+        this.position = position;
+        this.annualSalary = annualSalary;
+    }
+    
+    @Override
+    long getPay() {
+        return annualSalary / 12;
+    }
+}
+
+class InformalEmployee extends Employee {
+    Date contractEndDate;
+    long baseSalary;
+    
+    public InformalEmployee(String name, String address, String department, Date contractEndDate, long baseSalary) {
+        super("비정규직", name, address, department);
+        this.contractEndDate = contractEndDate;
+        this.baseSalary = baseSalary;
+    }
+    
+    @Override
+    long getPay() {
+        return baseSalary;
+    }
+}
+
+class TempEmployee extends Employee {
+    long timePay;
+    int workHours;
+    
+    public TempEmployee(String name, String address, String department, long timePay, int workHours) {
+        super("임시직", name, address, department);
+        this.timePay = timePay;
+        this.workHours = workHours;
+    }
+    
+    @Override
+    long getPay() {
+        return timePay * workHours;
+    }
+}
+
 public class Test02 {
 	public static void main(String[] args) {
 		Employee[] emps = new Employee[3];
 		emps[0] = new FormalEmployee("박정규","서울","총무부","001","과장",50000000);
+		
 		Date exDate = new Date(); 
 		exDate.setTime(exDate.getTime() + (1000L*60*60*24*365));
 		System.out.println(exDate);
+		
 		emps[1] = new InformalEmployee("유비정","서울","기획부",exDate,1000000);
 		emps[2] = new TempEmployee("손임시","서울","영업부",25000,10);
+		
 		long total = 0;
 		for(Employee e : emps) {
 			System.out.println(e.type + "=>" + e.name + ":"  + e.getPay());
 			total += e.getPay();
 		}				
+		
 		System.out.println("전체 직원 급여:" + total);
 	}
 }
