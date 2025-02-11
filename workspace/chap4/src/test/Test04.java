@@ -18,13 +18,12 @@ public class Test04 {
         int sd = (int) (Math.random() * 6) + 1;
 
       
-        System.out.print("사용자 주사위값: " + ud + ", ");
-        System.out.print("시스템 주사위값: " + sd);
+        System.out.print("사용자 주사위값: " + ud + ", 시스템 주사위값: " + sd);
 
         
         if (ud > sd) {
             System.out.println(" => 사용자 승리");
-        } else if (ud < sd) {
+        } else if (sd > ud) {
             System.out.println(" => 시스템 승리");
         } else {
             System.out.println(" => 무승부");

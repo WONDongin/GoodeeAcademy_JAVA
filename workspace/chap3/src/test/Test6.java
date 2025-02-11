@@ -12,8 +12,8 @@ public class Test6 {
 		
 		double pi = 3.141592;
 		
-		double result1 = 2* pi *num;
-		double result2 = num * num;
+		double result1 = 2* pi * num;
+		double result2 = num * num * pi;
 		
 		System.out.println("원의 둘레 : " + result1);
 		System.out.println("원의 넓이 : " + result2);
