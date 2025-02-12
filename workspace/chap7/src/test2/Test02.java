@@ -41,6 +41,7 @@ abstract class Employee {
     abstract long getPay();
 }
 
+// 정규직
 class FormalEmployee extends Employee {
     String empId;
     String position;
@@ -59,6 +60,7 @@ class FormalEmployee extends Employee {
     }
 }
 
+// 비정규직
 class InformalEmployee extends Employee {
     Date contractEndDate;
     long baseSalary;
@@ -69,12 +71,14 @@ class InformalEmployee extends Employee {
         this.baseSalary = baseSalary;
     }
     
+    // 부모 선언부 동일
     @Override
     long getPay() {
         return baseSalary;
     }
 }
 
+// 임시직원
 class TempEmployee extends Employee {
     long timePay;
     int workHours;
@@ -95,10 +99,11 @@ public class Test02 {
 	public static void main(String[] args) {
 		Employee[] emps = new Employee[3];
 		emps[0] = new FormalEmployee("박정규","서울","총무부","001","과장",50000000);
-		
-		Date exDate = new Date(); 
+		// exDate.getTime() : 1970년 부터 현재까지의 시간을 밀리초로 리턴
+		Date exDate = new Date();  // 현재 일시
+		// exDate 시간을 1년후로 설정 
 		exDate.setTime(exDate.getTime() + (1000L*60*60*24*365));
-		System.out.println(exDate);
+		System.out.println(exDate); // 계약만료일
 		
 		emps[1] = new InformalEmployee("유비정","서울","기획부",exDate,1000000);
 		emps[2] = new TempEmployee("손임시","서울","영업부",25000,10);
