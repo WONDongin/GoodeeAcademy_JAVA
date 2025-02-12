@@ -45,5 +45,7 @@ public class BindingEx2 {
 //		o.power();
 //		o.drive();
 //		o.stop();
+		
+		// 2
 	}
 }

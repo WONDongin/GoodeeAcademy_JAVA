@@ -173,19 +173,19 @@ class Buyer {
  int point = 0;     // 포인트
  int cnt = 0;       // 구매 건수
  Food[] cart = new Food[10]; // 장바구니
-
+// item : Food 클래스 하위 클래스의 객체들
  void buy(Food item) {
      if (money < item.price) {
          System.out.println(item.name + "구매시 잔액부족");
-         return;
+         return; // buy() 메서드 종료
      }
-
-     money -= item.price;
-     point += item.getPoint();
+     // money >= item.price 경우
+     money -= item.price; // 상품 가격을 차감
+     point += item.getPoint(); // 상품 포인트 증가
      cart[cnt++] = item; // 장바구니에 추가
      System.out.println(item);
  }
-
+//  cart 배열의 식품들 정리
  void summary() {
      int total = 0, fruitTotal = 0, beverageTotal = 0, snackTotal = 0;
      String fruitList = "", beverageList = "", snackList = "", totalList = "";

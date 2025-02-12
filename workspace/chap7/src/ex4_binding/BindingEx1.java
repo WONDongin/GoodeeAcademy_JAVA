@@ -32,5 +32,7 @@ public class BindingEx1 {
 		System.out.println(c.x);
 		c.method();
 		Object o = (Object)p; // 부모타입의 자료형 <- 자손타입의 자료형 : 형변환 연산자 생략 가능. 자동형변환
+		
+		// 10 부모 20 자식  20 20 10 
 	}
 }
