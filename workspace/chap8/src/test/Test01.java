@@ -68,6 +68,7 @@ class Lion extends Animals{
 
 public class Test01 {
 	public static void main(String[] args) {
+		
 		Animals[] animal = new Animals[2];
 		animal[0] = new Dog();
 		animal[1] = new Lion();

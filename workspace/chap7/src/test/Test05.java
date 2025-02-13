@@ -48,7 +48,7 @@ abstract class Employee{
 }
 
 //정규직 직원 클래스
-class FormalEmployee extends Employee{
+ class FormalEmployee extends Employee{
 	int salary;
 	String position, empNo;
 	

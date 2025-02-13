@@ -19,6 +19,8 @@ public class Test02 {
 	}
 	public static void main(String[] args) {
 		Beta b = getIt();
-		System.out.println(  ((Alpha)b).testIt()  );
+		// System.out.println(  ((Alpha)b).testIt()  );
+		Alpha a = ((Alpha)b);
+		System.out.println(a.testIt());
 	}
 }

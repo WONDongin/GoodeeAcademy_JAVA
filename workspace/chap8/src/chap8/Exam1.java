@@ -48,7 +48,7 @@ public class Exam1 {
 		
 		a = new Monkey();
 		a.eat();
-		if(a instanceof Flyable){
+		if(a instanceof Flyable){ //false
 			Flyable f = (Flyable)a;
 			f.fly();
 		}

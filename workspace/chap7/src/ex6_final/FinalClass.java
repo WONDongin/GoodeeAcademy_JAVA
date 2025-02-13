@@ -7,6 +7,6 @@ package ex6_final;
  */
 class A {};
 public final class FinalClass extends A{}
-//class SubClass extends FinalClass {}
+// class SubClass extends FinalClass {}
 
 //class MyString extends String {}
