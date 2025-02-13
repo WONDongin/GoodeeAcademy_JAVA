@@ -15,12 +15,10 @@ Audio를 끕니다.
 건전지를 교환합니다.
 */
 interface RemoteControl {
-	int volumn = 0;
-	
 	void turnOn();
 	void turnOff();
 	void setVolume(int i);
-	abstract void setMute(boolean b);
+	void setMute(boolean b);
 	static void changeBattery() {
 		System.out.println("건전지를 교환합니다.");
 	}
@@ -40,7 +38,7 @@ class Television implements RemoteControl{
 	}
 	@Override
 	public void setMute(boolean b) {
-		System.out.println( b == true ? "무음 처리합니다." : "무음을 해제합니다.");
+		System.out.println( b ? "무음 처리합니다." : "무음을 해제합니다.");
 	}
 }
 class Audio implements RemoteControl{
@@ -58,7 +56,7 @@ class Audio implements RemoteControl{
 	}
 	@Override
 	public void setMute(boolean b) {
-		System.out.println( b == true ? "무음 처리합니다." : "무음을 해제합니다.");
+		System.out.println( b ? "무음 처리합니다." : "무음을 해제합니다.");
 	}
 }
 public class Test01 {

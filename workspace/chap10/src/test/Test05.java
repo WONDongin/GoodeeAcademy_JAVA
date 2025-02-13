@@ -26,9 +26,25 @@ public class Test05 {
 		System.out.print("짝수의 합:");
 		numSum(a -> a % 2 == 0, arr);
 	}
-
+	// 함수 , 1~100까지 랜덤(10개 숫자)
 	private static void numSum(LambdaInterface2 f, int[] a) {
-
+		int sum = 0; // 합
+		StringBuilder sb = new StringBuilder(); // 문자열 저장
 		
+		for(int num : a) {
+			if(f.method(num)) { // 조건을 통과하는 숫자만 처리
+				sb.append(num).append(","); // 문자열 : 숫자 , (저장)
+				sum += num; // 숫자 합산
+			}
+		}
+		
+		if(sb.length() > 0) { // 숫자가 하나 이상 추가되었을때
+			sb.setLength(sb.length() - 1); // 문자열 마지막 , 삭제
+			// setLength(남은길이) : 문자열 뒷부분을 잘라 길이 조정
+		}
+		
+		System.out.println(sb.toString() + "=" + sum);
+	
 	}
+
 }

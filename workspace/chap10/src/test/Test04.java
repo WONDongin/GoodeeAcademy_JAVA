@@ -32,20 +32,14 @@ public class Test04 {
 
 
 	private static int calc(int x, int y, LambdaInterface1 f) {
-		int result = f.method(x, y);
+		return f.method(x, y);
+	}
+	
+	private static int calc(int[] arr, LambdaInterface1 f) {
+		int result = arr[0];
+		for(int i = 0; i < arr.length; i++) {
+			result = f.method(result, arr[i]);
+		}
 		return result;
 	}
-	
-	private static String calc(int[] arr, LambdaInterface1 f) {
-		
-		return null;
-	}
-
-
-	
-
-	
-
-
-	
 }
