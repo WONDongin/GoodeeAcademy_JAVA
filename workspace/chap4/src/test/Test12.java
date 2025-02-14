@@ -13,13 +13,15 @@ import java.util.Scanner;
  */
 public class Test12 {
 	public static void main(String[] args) {
-		System.out.println("가로 구구단 출력하기");
 		
-		for (int i = 1; i <= 9; i++) { // 행 
-            for (int j = 2; j <= 9; j++) { // 열 
-                System.out.printf("%d * %d = %2d\t", j, i, j * i);
-            }
-            System.out.println(); 
-        }
-	}
+			System.out.println("가로 구구단 출력하기");
+			
+			for (int i = 1; i <= 9; i++) { // 행 
+	            for (int j = 2; j <= 9; j++) { // 열 
+	                System.out.printf("%d * %d = %2d\t", j, i, j * i);
+	            }
+	            System.out.println(); 
+	        }
+		}
+	
 }

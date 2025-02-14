@@ -1,5 +1,6 @@
 package test;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 /*
@@ -10,11 +11,11 @@ import java.util.Scanner;
  
   *
  ***
-*****
+*****  바닦의 * 갯수 : h * 2 - 1
 */
 public class Test03 {
 	public static void main(String[] args) {
-		System.out.print("삼각형의 높이: ");
+System.out.print("삼각형의 높이: ");
 		
 		Scanner scanner = new Scanner(System.in);
 		int height = scanner.nextInt();
@@ -28,7 +29,9 @@ public class Test03 {
             for (int j = 0; j < (2 * i - 1); j++) {
                 System.out.print("*");
             }
+            
             System.out.println();
         }
+		
 	}
 }

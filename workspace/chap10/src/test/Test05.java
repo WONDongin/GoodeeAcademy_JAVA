@@ -46,5 +46,18 @@ public class Test05 {
 		System.out.println(sb.toString() + "=" + sum);
 	
 	}
+	
+/*
+static void numSum(LambdaInterface2 f,int[] arr) {
+		int sum = 0;
+		for(int a : arr) {
+			if(f.method(a)) { // 조건해당
+			   System.out.print(a+",");
+			   sum +=a; 
+			}
+		}
+		System.out.println("="+sum);
+	}
+*/
 
 }
