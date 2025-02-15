@@ -30,7 +30,5 @@ public class VarEx2 {
 		int top10 = 100;
 		char _id = 'A';
 		char $harp = 'B';
-		
-
 	}
 }

@@ -19,7 +19,7 @@ public class Test08 {
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
 		
-		if(num < 0) {
+		if(num < 1) {
 			System.out.println("잘못 입력하셨습니다.");
 		}  else {
 			for(int i = 1; i <= num; i++) {

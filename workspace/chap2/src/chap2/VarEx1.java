@@ -18,8 +18,6 @@ public class VarEx1 {
 		// b1 = 128; 오류발생 byte 형으로 저장할 수 있는 값이 아님 (-127~127)
 		// 0 : 양수 , 1: 음수
 		b1 = (byte)256; // 형변환 연산자(캐스팅)
-		System.out.println("b1=" + b1);
-		
-		
+		System.out.println("b1=" + b1);	
 	}
 }

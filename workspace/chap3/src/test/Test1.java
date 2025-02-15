@@ -26,6 +26,8 @@ public class Test1 {
 		System.out.println("100원: " + (sum % 500) / 100 + "개");
 		System.out.println("50원: " + (sum % 100) / 50 + "개");
 		System.out.println("10원: " + (sum % 50) / 10 + "개");
-		System.out.println("1원: " + (sum % 10) / 1 + "개");
+		System.out.println("1원: " + (sum % 10) + "개");
+		
+		// amt %= 500 > 잔액금액 갱신 
 	}
 }

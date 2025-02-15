@@ -17,7 +17,7 @@ public class Test09 {
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
 		
-		if(num < 0) {
+		if(num < 1) {
 			System.out.println("잘못 입력하셨습니다.");
 			return;
 		} 
@@ -30,7 +30,7 @@ public class Test09 {
 			expression.append(i);
 			
 			if(i < num) {
-				expression.append("+");
+				expression.append("+"); // 두개 합칠수있다.
 			}
 		} 
 		

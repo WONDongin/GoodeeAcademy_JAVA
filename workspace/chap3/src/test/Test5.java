@@ -22,8 +22,8 @@ public class Test5 {
 		System.out.println("높이의 길이");
 		int h = scanner.nextInt();
 		
-		double result =(w + h) / 2;
+		double result = (w *  h) / 2;
 		
-		System.out.println("넓이: " +result);
+		System.out.println("넓이: " + result);
 	}
 }

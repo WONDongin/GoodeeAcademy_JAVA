@@ -30,8 +30,8 @@ public class Test02 {
 		}else if ('a' <= num && num <= 'z') {
 			System.out.println("소문자");
 			System.out.println("대문자: " + (char) (num - 32));
-		}else if ('0' <= num && num <= '9') {
-			System.out.println((num - '0') + 20);
+		}else if ('0' <= num && num <= '9') { // '0' 코드 값 + 20 값 출력
+			System.out.println((num - '0') + 20); // (초 - '0') : 숫자 데이터 변경
 		} else {
 			System.out.println("기타문자");
 		}

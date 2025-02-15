@@ -14,6 +14,6 @@ public class Test3 {
 		Scanner scanner = new Scanner(System.in);
 		int score = scanner.nextInt();
 		
-		System.out.println(score >= 90 ? "A학점" : score >= 80 ? "B학점" : score > 70 ? "C학점" : score >= 60 ? "D학점" : "F학점" );
+		System.out.println(score + "점" +( score >= 90 ? "A학점" : score >= 80 ? "B학점" : score > 70 ? "C학점" : score >= 60 ? "D학점" : "F학점" ));
 	}
 }
