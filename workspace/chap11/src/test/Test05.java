@@ -10,17 +10,24 @@ public class Test05 {
 		indexOf("12345", "AB");            //AB : 없음
 	}
 
-	private static void indexOf(String s1, String s2) {
-		int index = 0;
-		while (true) {
-			index = s1.indexOf(s2, index);
-			
-			for(int i = 0; i < s1.length(); i++) {
-				
-			}
-			
-			index++;
-			
-		}
-	}
+	public static void indexOf(String str, String target) {
+        StringBuilder result = new StringBuilder(target + ":");
+        int index = str.indexOf(target);
+        boolean found = false;
+        
+        while (index != -1) {
+            if (found) {
+                result.append(",");
+            }
+            result.append(index);
+            found = true;
+            index = str.indexOf(target, index + 1);
+        }
+        
+        if (!found) {
+            result.append(" 없음");
+        }
+        
+        System.out.println(result);
+    }
 }

@@ -2,7 +2,6 @@ package test;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 /*
 1부터 100까지 중 임의의 숫자를 컴퓨터가 저장하고, 
 값을 입력받아 저장된 값을 맞추는 프로그램을 작성하기
@@ -41,40 +40,43 @@ import java.util.Scanner;
 16
 정답입니다. 입력 횟수:8
 */
-class NumberInputException extends RuntimeException{
+class NumberInputException extends Exception{
 	NumberInputException(String msg) {
 		super(msg);
 	}
 }
 public class Test01 {
 	public static void main(String[] args) {
-		System.out.print("입력: ");
 		Scanner scan = new Scanner(System.in);
-		int result = 20;
-		int count = 0;
+		System.out.println("1부터 100까지의 숫자를 입력하세요");
+		int result = (int) (Math.random() * 100) + 1;
+		int count = 0; 
 		
 		while (true) {
 			try {
-				int num = scan.nextInt();
-				if(num < 0 || num > 100) {
-					throw new NumberInputException("1~100사이 정수입력");
-				}
+            	int num = scan.nextInt();
+
+				if (num < 1 || num > 100) {
+                    throw new NumberInputException("1~100 사이 정수를 입력하세요");
+                }
+
+				count++;
 				
-				if(result > num) {
-					System.out.println("큰수를 입력하세요.");
-					count++;
-				}else if (result < num) {
-					System.out.println("작은수를 입력하세요.");
-					count++;
-				} else {
-					System.out.println("정답입니다." +  "입력횟수: " + count);
-					break;
-				}
+				if (result > num) {
+                    System.out.println("큰수를 입력하세요.");
+                } else if (result < num) {
+                    System.out.println("작은수를 입력하세요.");
+                } else {
+                    System.out.println("정답입니다. 입력 횟수: " + count);
+                    break;
+                }
 			} catch (InputMismatchException e) {
 				System.out.println("숫자를 입력하세요");
-				scan.next();
+				scan.next(); // 버퍼 초기화
+				count++;
 			} catch (NumberInputException e) {
 				System.out.println(e.getMessage());
+				count++;
 			}
 		}
 	}

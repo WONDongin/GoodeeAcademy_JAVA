@@ -1,4 +1,5 @@
 package test;
+import java.util.*;
 /*
  * 숫자 맞추기 게임
  * 시스템이 4자리의 서로 다른 수를 저장한 후 사용자가 저장된 수를 맞추는 게임
@@ -24,8 +25,72 @@ package test;
 2679정답입니다.
 3번 만에 맞추셨습니다. 게임을 종료합니다.
  */
-public class Test04 {
-	public static void main(String[] args) {
+class NumberInputException extends Exception {
+    public NumberInputException(String message) {
+        super(message);
+    }
+}
 
-	}
+public class Test04 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> targetNumbers = generateUniqueNumbers();
+        int attempts = 0;
+        
+        while (true) {
+            try {
+                System.out.print("서로 다른 4자리 정수를 입력하세요: ");
+                String input = scanner.next();
+                validateInput(input);
+                List<Integer> userNumbers = convertToList(input);
+                attempts++;
+                
+                int strike = 0, ball = 0;
+                for (int i = 0; i < 4; i++) {
+                    if (userNumbers.get(i).equals(targetNumbers.get(i))) {
+                        strike++;
+                    } else if (targetNumbers.contains(userNumbers.get(i))) {
+                        ball++;
+                    }
+                }
+                
+                if (strike == 4) {
+                    System.out.println(input + " 정답입니다.");
+                    System.out.println(attempts + "번 만에 맞추셨습니다. 게임을 종료합니다.");
+                    break;
+                } else {
+                    System.out.println(input + ": " + strike + "스트라이크, " + ball + "볼");
+                }
+            } catch (NumberInputException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        scanner.close();
+    }
+    
+    private static List<Integer> generateUniqueNumbers() {
+        Random random = new Random();
+        Set<Integer> uniqueNumbers = new LinkedHashSet<>();
+        while (uniqueNumbers.size() < 4) {
+            uniqueNumbers.add(random.nextInt(10));
+        }
+        return new ArrayList<>(uniqueNumbers);
+    }
+    
+    private static void validateInput(String input) throws NumberInputException {
+        if (!input.matches("\\d{4}")) {
+            throw new NumberInputException("4자리 숫자를 입력하세요.");
+        }
+        if (new HashSet<>(convertToList(input)).size() < 4) {
+            throw new NumberInputException("중복된 숫자가 입력되었습니다.");
+        }
+    }
+    
+    private static List<Integer> convertToList(String input) {
+        List<Integer> numbers = new ArrayList<>();
+        for (char ch : input.toCharArray()) {
+            numbers.add(Character.getNumericValue(ch));
+        }
+        return numbers;
+    }
 }
