@@ -25,4 +25,31 @@ public class Test09 {
 		  System.out.println(filldash(src, 3));
 		  System.out.println(filldash(null, 3));
 	}
+
+	public static String filldash(String str, int len){
+		
+		if(str == null){
+			return null;
+		}
+		if (len <= 0 ) {
+			return "";
+		}
+		if(str.length() == len){
+			return str;
+		}
+		if(str.length() > len){
+			return str.substring(0, len);
+		}
+
+		// 문자열 앞 공백 개수 만큼 - 추가가
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < len - str.length(); i++){
+			sb.append("-");
+		}
+		// 기본 배열 추가가
+		sb.append(str);
+		return sb.toString();
+	
+	}
 }

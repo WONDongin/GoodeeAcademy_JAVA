@@ -17,10 +17,11 @@ public class Test06 {
 		String s1 = "HTML-CSS-JavaScript-JAVA-JSP-스프링";
 		String s2 = "홍길동  ,  김삿갓,  이몽룡, 성춘향,  임꺽정, 향단이    ";
 		
+		// spilt("-") - 기준으로 문자열 분리
 		String[] arr1 = s1.split("-");
 		String[] arr2 = s2.split(",");
 		
-		for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < arr1.length; i++) {
 			System.out.printf("%s => %s\n",  arr1[i], arr2[i].trim());
 		}
 	}
