@@ -28,15 +28,13 @@ public class Test09 {
 
 	public static String filldash(String str, int len){
 		
-		if(str == null){
-			return null;
+		if(str == null || str.length() == len){
+			return str;
 		}
 		if (len <= 0 ) {
 			return "";
 		}
-		if(str.length() == len){
-			return str;
-		}
+
 		if(str.length() > len){
 			return str.substring(0, len);
 		}
