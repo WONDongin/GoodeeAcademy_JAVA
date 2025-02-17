@@ -1,4 +1,7 @@
 package test;
+
+import java.util.Objects;
+
 /*
  * 학생클래스의 객체중 학번과 이름이 같다면 같은 학생이 되도록 Student 클래스 수정하기
  [결과]
@@ -29,16 +32,21 @@ class Student {
     }
     
     // hashCode 메서드 오버라이딩: equals 메서드와 일관성을 유지하기 위해 학번과 이름을 기준으로 해시 코드 생성
+
+    
     @Override
     public int hashCode() {
         return Objects.hash(studno, name);
-    }
+    } 
+    
     
     // toString 메서드 오버라이딩: 학생 객체의 정보를 보기 좋게 출력하도록 설정
     @Override
     public String toString() {
         return "[학번=" + studno + ", 이름=" + name + ", 전공=" + major + "]";
     }
+
+	
 }
 
 public class Test02 {
@@ -57,3 +65,5 @@ public class Test02 {
 		}
 	}
 }
+
+
