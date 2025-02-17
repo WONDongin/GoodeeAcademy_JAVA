@@ -25,15 +25,16 @@ import java.util.*;
 2679정답입니다.
 3번 만에 맞추셨습니다. 게임을 종료합니다.
  */
-class NumberInputException extends Exception {
-    public NumberInputException(String message) {
+// 예외 처리 필수 예외 객체
+class NumberInputExceptions extends Exception {
+    public NumberInputExceptions(String message) {
         super(message);
     }
 }
 
 public class Test04 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    	Scanner scanner = new Scanner(System.in);
         List<Integer> targetNumbers = generateUniqueNumbers();
         int attempts = 0;
         
@@ -61,7 +62,7 @@ public class Test04 {
                 } else {
                     System.out.println(input + ": " + strike + "스트라이크, " + ball + "볼");
                 }
-            } catch (NumberInputException e) {
+            } catch (NumberInputExceptions e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -77,12 +78,12 @@ public class Test04 {
         return new ArrayList<>(uniqueNumbers);
     }
     
-    private static void validateInput(String input) throws NumberInputException {
+    private static void validateInput(String input) throws NumberInputExceptions {
         if (!input.matches("\\d{4}")) {
-            throw new NumberInputException("4자리 숫자를 입력하세요.");
+            throw new NumberInputExceptions("4자리 숫자를 입력하세요.");
         }
         if (new HashSet<>(convertToList(input)).size() < 4) {
-            throw new NumberInputException("중복된 숫자가 입력되었습니다.");
+            throw new NumberInputExceptions("중복된 숫자가 입력되었습니다.");
         }
     }
     
