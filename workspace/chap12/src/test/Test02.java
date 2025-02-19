@@ -36,30 +36,31 @@ Collections.max(list)와 Collections.min(list) 함수를 이용한다
 public class Test02 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("자연수를 입력하세요. (0:종료)");
 		List<Integer> list = new ArrayList<Integer>();
 		int sum = 0;
 		
+		System.out.println("자연수를 입력하세요. (0:종료)");
 		while (true) {
 			// 정수형 아닌것 구별
 			try {
 				int num = sc.nextInt();
 				
-				if(num == 0) {
-					break;
-				}
-				
+				if(num == 0) {break;}
 				if(num % 2 != 0) {
 					list.add(num);
 					sum += num;
 				}
 			//예외처리 InputMismatchException
 			} catch (InputMismatchException e) { 
-				sc.next(); // 추가 입력막기
+				System.out.println("숫자를 입력하세요!");
+				sc.next(); // 잘못된 입력 제거
 			}
-			
 		}
+		// 중간값 index 값
+		// 홀수 : 5 / 2 = 2, 짝수 : 6 / 2 = 3
 		int m = list.size() / 2;
+		// 중간값 구하기
+		int median = (list.size() % 2 == 0) ? ((list.get(m - 1) + list.get(m)) / 2) : (list.get(m));
 		int max = Collections.max(list);
 		int min = Collections.min(list);
 	
@@ -69,6 +70,6 @@ public class Test02 {
 		System.out.println("홀수의 최대값의 위치:" + list.indexOf(max));
 		System.out.println("홀수의 최소값의 위치:" + list.indexOf(min));
 		System.out.println("입력된 홀수목록: " + list);
-		System.out.println("중간값: " + list.get(m));
+		System.out.println("중간값: " + median);
 	}
 }

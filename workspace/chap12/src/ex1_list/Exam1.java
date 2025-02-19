@@ -40,13 +40,12 @@ public class Exam1 {
 		System.out.println("평균: " + avg);
 		
 		// 중간값
-		Collections.sort(list);
 		int m = list.size()/2; // 5/2 = 2. 6/2 = 3;
 
-		if(list.size() % 2 != 0) {
-			System.out.println("홀수시 가운데값 인덱스: " + (list.get(m-1) + list.get(m)) / 2);
+		if(list.size() % 2 == 0) {
+			System.out.println("짝수 시 가운데값 : " + (list.get(m-1) + list.get(m)) / 2);
 		} else {
-			System.out.println(list + "=> 중간값: " + list.get(m)) ;
+			System.out.println("홀수 시 가운데값 : " + list.get(m)) ;
 		}
 
 	}

@@ -83,17 +83,19 @@ public class ListEx3 {
 		list3.add(new Data2(2)); list3.add(new Data2(4));
 		System.out.println(list3);
 		
+		// 익명 객체 구현
 		Collections.sort(list3, new Comparator<Data2>(){
 			@Override
 			public int compare(Data2 o1, Data2 o2) {
-				return o1.value = o2.value;
+				return o1.value - o2.value;
 			}
 		});
-		// 람다방식
+		// 람다방식 - 오름차순
+		// list3.sort(Comparator.comparingInt(n -> n.value));
 		Collections.sort(list3,(d1, d2)-> d1.value - d2.value);
 		System.out.println(list3);
-		
-		Comparator<Data2> f =(d1, d2) -> d1.value - d2.value;
+		// 람다방식 - 내림차순
+		Comparator<Data2> f =(d1, d2) -> d2.value - d1.value;
 		Collections.sort(list3, f);
 		System.out.println(list3);
 	}

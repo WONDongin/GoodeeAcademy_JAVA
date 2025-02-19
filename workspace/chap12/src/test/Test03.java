@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
@@ -33,22 +34,43 @@ import java.util.Set;
  */
 public class Test03 {
 	public static void main(String[] args) {
-		int num = (int) (Math.random()*1000) + 1;
+		Random rendom = new Random();
 		
-		int[] arr = null;
+		LinkedHashSet<Integer> set3 = new LinkedHashSet<>();
+		LinkedHashSet<Integer> set2 = new LinkedHashSet<>();
+		LinkedHashSet<Integer> set1 = new LinkedHashSet<>();
 		
-		Set<Integer> set1 = new LinkedHashSet<>();
-		Set<Integer> set2 = new LinkedHashSet<>();
-		Set<Integer> set3 = new LinkedHashSet<>();
+		System.out.println("3등 복권 추첨합니다.");
+		while (set3.size() < 3) {
+			set3.add(rendom.nextInt(1000)+1);
+		}
+		System.out.println(set3);
 		
-		for(int i = 0; i < arr.length; i++) {
-			// set1 객체에 arr[i] 객체 추가 실패인 경우
-			if(!set1.add(arr[i])) {
-				if(!set2.add(arr[i])) {
-					set3.add(arr[i]);
-				}
+		System.out.println("2등 복권 추첨합니다.");
+		while (set2.size() < 2) {
+			int num = rendom.nextInt(1000)+1;
+			if(!set1.contains(num)) {
+				set2.add(num);
 			}
 		}
+		System.out.println(set2);
 		
+		System.out.println("1등 복권 추첨합니다.");
+		while (set1.size() < 1) {
+			int num = rendom.nextInt(1000)+1;
+			if(!set3.contains(num) && !set2.contains(num)) {
+				set1.add(num);
+			}
+		}
+		System.out.println(set1);
+
+		System.out.println("*** 복권 추첨 결과 ***");
+		System.out.println("1등:" + String.join(", ", set1.stream().map(String::valueOf).toList()));
+		System.out.println("2등:" + String.join(", ", set2.stream().map(String::valueOf).toList()));
+		System.out.println("3등:" + String.join(", ", set3.stream().map(String::valueOf).toList()));
+		System.out.println("===========");
+		System.out.println("1등:" + new ArrayList<>(set1));
+        System.out.println("2등:" + new ArrayList<>(set2));
+        System.out.println("3등:" + new ArrayList<>(set3));
 	}
 }

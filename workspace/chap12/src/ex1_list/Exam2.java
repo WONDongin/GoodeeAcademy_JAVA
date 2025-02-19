@@ -1,6 +1,7 @@
 package ex1_list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -36,21 +37,23 @@ class Name implements Comparable<Name>{
 
 public class Exam2 {
 	public static void main(String[] args) {
-		List<Name> list = new ArrayList<>();
-		list.add(new Name("김", "kim"));
-		list.add(new Name("이", "lee"));
-		list.add(new Name("박", "park"));
-		list.add(new Name("안", "an"));
-		list.add(new Name("최", "choi"));
-		System.out.println("기존:" + list);
-		// 순서 바꾸기 코드
-		Collections.sort(list); 
+		List<Name> list = new ArrayList<>(Arrays.asList(
+				new Name("김", "kim"),
+				new Name("이", "lee"),
+				new Name("박", "park"),
+				new Name("안", "an"),
+				new Name("최", "choi")
+		));
+		System.out.println("기존:");
+		System.out.println(list); 
 		
+		// compareTo() 실행
+		Collections.sort(list); 
 		System.out.println("국문 순:");
 		System.out.println(list);
 		
 		System.out.println("영문 순:");
-		Collections.sort(list,(n1, n2)-> n1.eng.compareTo(n2.eng));
+		list.sort(Comparator.comparing(n -> n.eng));
 		System.out.println(list);
 		
 		System.out.println("국문 내림차순:");
@@ -59,7 +62,8 @@ public class Exam2 {
 		System.out.println(list);
 		
 		System.out.println("영문 내림차순:");
-		Collections.sort(list,(n1, n2)-> n2.eng.compareTo(n1.eng));
+		// Collections.sort(list,(n1, n2)-> n2.eng.compareTo(n1.eng));
+		list.sort((n1, n2) -> n2.eng.compareTo(n1.eng));
 		System.out.println(list);
 		
 	}
