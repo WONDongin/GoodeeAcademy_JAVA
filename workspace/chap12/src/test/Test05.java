@@ -35,34 +35,38 @@ y
 */
 public class Test05 {
 	public static void main(String[] args) {
-		Map<String, String> food = new HashMap<String, String>();
-		food.put("떡볶기", "오뎅");
-		food.put("짜장면", "단무지");
-		
+		Map<String, String> foods = new HashMap<>();
+		foods.put("떡볶이", "오뎅");
+		foods.put("라면", "김치");
+
 		Scanner sc = new Scanner(System.in);
-		System.out.println("음식을 입력하세요: ");
 		
-		while (true) {
+		while (true){
+			System.out.println("음식명을 입력하세요(종료:종료)");
 			String menu = sc.nextLine();
 			
 			if(menu.equals("종료")){
-				System.out.print("등록된 궁합:");
-				for(String k : food.keySet()) System.out.print(k + "="+food.get(k) + ",");
-				System.out.println();
+				for(Map.Entry<String, String> entry : foods.entrySet()) {
+					System.out.println(entry.getKey() + ":" + entry.getValue());
+				}
 				break;
 			}
 			
-			String key = food.get(menu);
+			String foodv = foods.get(menu);
 			
-			if(key == null) {
-				System.out.println(menu + "의 궁합음식이 등록되지 않았습니다. 등록하시겠습니까? (Y)");
+			if(foodv == null) {
+				System.out.println(menu + "의 궁합음식이 등록되어 있지 않습니다.등록하시겠습니까? (y)");
 				String yn = sc.next();
-				if(yn.equalsIgnoreCase("Y")) {
-					System.out.println(menu + "의 궁합음식을 등록하세요.");
-					key = sc.next();
-					food.put(menu, key);
-				} else continue;
-			}	
+				sc.nextLine();
+				
+				if (yn.equalsIgnoreCase("y")) {
+					System.out.println(menu + "의 궁합음식을 등록하세요");
+					foodv = sc.nextLine();
+					foods.put(menu,foodv);
+				}
+			} else {
+				System.out.println(menu + ":" + foodv);
+			}
 		}
-	}
+    }
 }
