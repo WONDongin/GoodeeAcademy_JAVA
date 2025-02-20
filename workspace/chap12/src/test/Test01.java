@@ -2,7 +2,6 @@ package test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -74,7 +73,6 @@ class Student{
 	}
 }	
 	
-
 public class Test01 {
 	public static void main(String[] args) {
 		// Arrays.asList() : 객체를 한번에 추가
