@@ -1,10 +1,8 @@
 package test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Scanner;
 
 /*
  * apple.gif 파일을 읽어서, apple2.gif 파일로 복사하기
@@ -12,21 +10,26 @@ import java.util.Scanner;
 public class Test04 {
 	public static void main(String[] args) throws IOException {
 		
-		String orgfile = "src/test/apple.gif";
-		String bakfile = "src/test/apple2.gif";		
-		
-		FileInputStream fis = new FileInputStream(orgfile);
-		FileOutputStream fos = new FileOutputStream(bakfile);
-	
-		int data = 0;
-		
-		byte[] buf = new byte[1000];
-		while ((data=fis.read(buf)) != -1)  {
-			fos.write(buf, 0, data);
-		}
-		System.out.println("복사완료");
-		fis.close();
-		fos.flush();
-		fos.close();	
+		String sourceFile = "src/test/apple.gif";  // 원본 파일
+        String destinationFile = "src/test/apple2.gif";  // 복사할 파일
+        
+        // 파일 자동 닫기
+        try (FileInputStream fis = new FileInputStream(sourceFile);//  원본 파일을 바이트 단위로 읽음
+             FileOutputStream fos = new FileOutputStream(destinationFile)) { // 새로운 파일에 바이트 단위로 저장
+
+            byte[] buffer = new byte[1024];  // 1KB 버퍼
+            // bytesRead → fis.read(buf)를 호출하면 읽은 바이트 수를 반환
+            int bytesRead;
+
+            // 파일을 읽고 쓰기
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+
+            System.out.println("파일 복사가 완료되었습니다: " + destinationFile);
+
+        } catch (IOException e) {
+            System.err.println("파일 복사 중 오류 발생: " + e.getMessage());
+        }
 	}
 }

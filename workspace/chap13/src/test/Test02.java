@@ -1,9 +1,7 @@
 package test;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
-
 /*
 2. 
  bin/ex1_inputstream/InputStreamEx1.class 파일은 이진 파일이다. 
@@ -17,16 +15,21 @@ CA FE BA BE 00 00 00 34 00 8E 07 00 02 01 00 17
 3C 69 6E 69 74 3E 01 00 03 28 29 56 01 00 04 43 
 6F 64 65 0A 00 03 00 09 0C 00 05 00 06 01 00 0F 
 .... */
-
 public class Test02 {
 	public static void main(String[] args) throws IOException{
-		char[] buf = new char[10000];
-		int data = 0;
-		FileReader fr = new FileReader("bin/ex1_inputstrem/ReaderEX1.class");
-	
-			
-		while ((data = fr.read()) != -1) {
-			System.out.println(String.format("%X,%x", 255,255) + (char)data);
-		}
+		String filePath = "bin/ex1_inputstream/InputStreamEx1.class";
+        try (FileInputStream fis = new FileInputStream(filePath)) {
+            int byteRead;
+            int count = 0;
+            while ((byteRead = fis.read()) != -1) {
+                System.out.printf("%02X ", byteRead);
+                count++;
+                if (count % 16 == 0) {
+                    System.out.println(); // 16바이트마다 줄바꿈
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("파일을 읽는 중 오류 발생: " + e.getMessage());
+        }
 	}
 }

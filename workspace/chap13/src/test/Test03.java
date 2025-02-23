@@ -1,4 +1,7 @@
 package test;
+
+import java.io.*;
+import java.util.Scanner;
 /*
 1. 반복문을 이용하여 
   파일명을 입력받아서 해당 파일이 존재하면 해당파일명.bak 파일 복사하기
@@ -15,44 +18,38 @@ bbb.txt
 파일명을 입력하세요(종료:exit)
 exit
 */
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Scanner;
-
 public class Test03 {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
-		
-		
-		while (true) {
-			System.out.println("파일명을 입력하세요(종료:exit)");
-			String site = sc.nextLine();
-			
-			try {
-				if(site.equals("exit")) break;
-				
-				FileInputStream fis = new FileInputStream("src/test/" + site + ".java");
-				FileOutputStream fos = new FileOutputStream("src/test/"+ site +".bak");
-				
-				int data = 0;
-				
-				byte[] buf = new byte[1000];
-				while ((data=fis.read(buf)) != -1)  {
-					fos.write(buf, 0, data);
-				}
-				System.out.println(site + ".txt =>" + site +".bac 복사완료");
-				
-				fis.close();
-				fos.flush();
-				fos.close();
-				
-			} catch (FileNotFoundException e) {
-				System.out.println("해당 파일 없음");
-				continue;
-			}
-		}
+
+        while (true) {
+            System.out.println("파일명을 입력하세요(종료:exit)");
+            String site = sc.nextLine();
+            // 종료 조건 (exit 입력 시 종료)
+            if (site.equals("exit")) break;
+
+            File file = new File("src/test/" + site);
+            // 파일이 존재하는지 확인
+            if (!file.exists()) {
+                System.out.println("해당 파일 없음");
+                continue;
+            }
+
+            try (FileInputStream fis = new FileInputStream(file);
+                 FileOutputStream fos = new FileOutputStream("src/test/" + site + ".bak")) {
+
+                byte[] buf = new byte[1000];//1000바이트 크기의 버퍼를 생성합니다.
+                int data;
+                while ((data = fis.read(buf)) != -1) {
+                    fos.write(buf, 0, data);// 읽은 데이터를 fos에 씁니다.
+                }
+                System.out.println(site + " => " + site + ".bak 복사 완료");
+            // 예외처리
+            } catch (IOException e) {
+                System.out.println("파일 처리 중 오류 발생: " + e.getMessage());
+            }
+        }
+
+        sc.close();
 	}
 }

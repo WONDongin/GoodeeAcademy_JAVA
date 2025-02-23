@@ -1,8 +1,10 @@
 package test;
-
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /*
@@ -14,26 +16,31 @@ import java.util.Scanner;
 public class Test01 {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
-		
-		while (true) {
-			System.out.println("파일명을 입력하세요: ");
-			String name = sc.nextLine();			
-			
-			try {
-				FileInputStream fis = new FileInputStream(("src/test/" + name + ".java"));
-				
-				int data = 0;
-				byte[] buf = new byte[fis.available()];
-				while ((data = fis.read(buf)) != -1) {
-					System.out.print(new String(buf, 0, data));
-				}
-				fis.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("해당 파일 없음");
-				System.out.println("시스템 종료");
-				break;
-			}
-		}
-		sc.close();
+        
+        while (true) {
+            System.out.print("파일명을 입력하세요: ");
+            String name = sc.nextLine();            
+
+            File file = new File("src/test/" + name + ".java");
+            if (!file.exists()) {
+                System.out.println("해당 파일 없음");
+                continue;  // 사용자에게 다시 입력할 기회를 줌
+            }
+
+            try (FileInputStream fis = new FileInputStream(file);
+                 InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                 BufferedReader br = new BufferedReader(isr)) {
+
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+
+            } catch (IOException e) {
+                System.out.println("파일을 읽는 도중 오류 발생: " + e.getMessage());
+            }
+            sc.close();
+        }
+       
 	}
 }
