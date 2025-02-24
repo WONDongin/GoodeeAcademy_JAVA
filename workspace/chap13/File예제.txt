@@ -1,0 +1,195 @@
+package ex7_other;
+
+import java.io.File;
+
+/*
+c:/windows 폴더의 하위 폴더의 갯수와 파일의 갯수, 파일의 총크기를 출력하기 
+*/
+public class Exam1 {
+	public static void main(String[] args) {
+		File f1 = new File("c:/Windows");		
+		String[] files = f1.list();
+		
+		int dfnt = 0, fcnt = 0;
+		long size = 0;
+		
+		for(String f : files) {
+			File f2 = new File(f1, f);
+			
+			if(f2.isFile()) {
+				fcnt++;
+				size += f2.length();
+			} else {
+				dfnt++;
+			}
+		}
+		
+		System.out.printf("하위 폴더의 갯수: %d\n하위 파일의 갯수: %d\n파일의 총 크기: %,d(byte)", dfnt, fcnt, size);
+	}
+}
+package ex7_other;
+
+import java.io.File;
+
+/*
+File 클래스
+- 파일이나 폴더의 정보를 관리하는 클래스
+- new File(String) : 경로 
+- new File(String, String) : 경로, 하위경로
+- 윈도우 : \\(역슬래시), /
+- 리룩스 : / 
+ 
+*/
+public class FileEx1 {
+	public static void main(String[] args) {
+		System.out.println("File.separator:" + File.separator);
+		
+		// String filePath = "c:" + File.separator;
+		String filePath = "c:/";
+		// f1 : c:/ 폴더의 정보
+		File f1 = new File(filePath);
+		// f1.list(): 하위 폴더/파일의 정보이름을 리턴
+		String[] files = f1.list();
+		
+		for(String f : files) { // f : c:\ 폴더의 하위 목록의 이름
+			File f2 = new File(filePath, f); // 상위경로, 하위경로
+			
+			if(f2.isDirectory()) { // 폴더?
+				System.out.printf("%s:디렉토리\n", f);
+			}else { // 파일인 경우
+				// f.length() : 파일의 크기
+				// %, d : 형식지정문자, 10진정수 출력시 세자리마다 , 출력
+				System.out.printf("%s:파일(%,dbytes)\n", f, f.length());
+			}
+		}
+	}
+}
+package ex7_other;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/*
+File 클래스의 주요 메서드 
+f1.getAbsolutePath() : 절대경로
+f1.mkdir() : 하위 폴더 1개 생성, 폴더생성 성공: true 리턴, 실패: false 리턴
+f1.mkdirs() : 여러개의 하위 폴더 생성
+f2.createNewFile() : 파일 생성. 파일생성 성공:true 리던, 실패: false 리턴
+f2.getName() : 파일의 이름
+f2.length() :  파일의 크기(0바이트)
+exists() : 존재여부 판단, 존재하면 true 리턴, 없는파일이면 false 리턴
+f2.renameTo(f3) : f2파일의 이름을 f3이름으로 변경, 성공: true, 실패: false
+lastModified() : 파일의 최종 수정시간을 밀리초로 리턴
+f3.delete() : f3 파일을 삭제, 성공: true, 실패: false
+*/
+public class FileEx2 {
+	public static void main(String[] args) throws IOException {
+		File f1 = new File("c:/temp1");
+		System.out.printf("%s 폴더 생성:%b\n", f1.getAbsolutePath(), f1.mkdir());
+		File f2 = new File("c:/temp1/test.txt");
+		
+		System.out.printf("%s 파일 생성:%b\n", f2.getAbsolutePath(), f2.createNewFile());
+		System.out.printf("파일 이름:%s, 파일크기:%d\n", f2.getName(), f2.length());
+		
+		File f3 = new File("c:/temp1/test2.txt");
+		
+		// exists() : 존재여부 판단
+		if(f3.exists()) {
+			System.out.println(f3.getName() + "파일은 존재함");
+		} else {
+			System.out.println(f3.getName( ) + "파일은 없음");
+		}
+		System.out.printf("%s->%s 이름변경:%b\n", f2.getName(), f3.getName(), f2.renameTo(f3));
+		
+		// lastModified() : 1970년 이후 파일수정 시간까지 밀리초
+		System.out.println("파일의 최종 수정시간:" + f3.lastModified());
+		
+		// 파일의 최종 수정시간 : 년월일 시분초로 출력하기
+		String lastday =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(f3.lastModified()));
+		System.out.println("파일의 최종 수정시간:" + lastday);
+		// f3.delete() : 파일삭제
+		System.out.printf("%s 파일 삭제:%b\n", f3.getName(),f3.delete());
+		
+	}
+}
+package ex7_other;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+/*
+File 클래스를 이용하여 파일 읽어 오기
+ 
+*/
+public class FileEx3 {
+	public static void main(String[] args) throws IOException {
+		File f = new File("data.txt");
+		if(!f.exists()) {
+			System.out.println(f.getName() + "파일은 존재하지 않습니다.");
+			return;
+		}
+		
+		FileInputStream fis = new FileInputStream(f);
+		int len = 0;
+		byte[] buf = new byte[8096];
+		while ((len = fis.read(buf)) != -1) {
+			System.out.println(new String(buf,0,len));
+		}
+		fis.close();
+		f.delete();
+	}
+}
+package ex7_other;
+
+import java.io.*;
+import java.util.*;
+
+public class SequenceStreamEx1 {
+    public static void main(String[] args) {
+        File f = new File("src/ex7_other");
+        String[] files = f.list();
+
+        if (files == null) {
+            System.out.println("디렉터리가 존재하지 않거나 파일이 없습니다.");
+            return;
+        }
+
+        Vector<InputStream> v = new Vector<>();
+        for (String file : files) {
+            File f2 = new File(f, file);
+            if (f2.isFile()) {
+                try {
+                    v.add(new FileInputStream(f2));
+                } catch (FileNotFoundException e) {
+                    System.out.println("파일을 찾을 수 없습니다: " + file);
+                }
+            }
+        }
+
+        if (v.isEmpty()) {
+            System.out.println("연결할 파일이 없습니다.");
+            return;
+        }
+
+        try (SequenceInputStream s = new SequenceInputStream(v.elements());
+             FileOutputStream fos = new FileOutputStream("File예제.txt")) {
+
+            byte[] buf = new byte[8096];
+            int data;
+            while ((data = s.read(buf)) != -1) {
+                fos.write(buf, 0, data);
+            }
+
+            fos.flush();
+            System.out.println("파일 병합 완료: File예제.txt");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

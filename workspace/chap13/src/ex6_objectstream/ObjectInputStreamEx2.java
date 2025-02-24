@@ -17,29 +17,3 @@ public class ObjectInputStreamEx2 {
 		System.out.println(u2.toString());
 	}
 }
-/*
-사용자 아이디 입력 : ㅇㅇㅇ
-메뉴선택 달력조회/이벤트추가,조회,변경,삭제 파일에 등록
-일정
-기간
-내용
-map
-
-객체의 직렬화
-ObjectOutputStream
-ObjectInputputStream
- 
-보조 스트림
-BufferedReader
-PrintStream
-
-Writer
-FileWriter
-FileOutputStream
-FileReader
-FileInputStream
-
-OutputStream
-Reader
-InputStream
- */
