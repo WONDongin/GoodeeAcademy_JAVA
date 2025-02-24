@@ -1,0 +1,12 @@
+For input string: "a"
+For input string: "a"
+For input string: "a"
+2025-02-24 10:46:14=>For input string: "a"
+2025-02-24 10:46:31=>For input string: "a"
+2025-02-24 10:47:42=>For input string: "a"
+2025-02-24 10:48:05=>For input string: "a"
+java.lang.NumberFormatException: For input string: "a"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at ex5_printstream.Exam1.main(Exam1.java:19)
