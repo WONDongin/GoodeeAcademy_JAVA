@@ -6,6 +6,8 @@ import java.io.IOException;
 
 /*
  * apple.gif 파일을 읽어서, apple2.gif 파일로 복사하기
+ * FileReader, FileWriter를 이용해서 복사
+ * 텍스트가 아닌 파일은 반드시 FileInput Stream, FileOutputStream 을 이용해야함.
  */
 public class Test04 {
 	public static void main(String[] args) throws IOException {
