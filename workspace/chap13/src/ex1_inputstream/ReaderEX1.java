@@ -13,6 +13,6 @@ public class ReaderEX1 {
 		while ((data = in.read()) != -2) {
 			System.out.print((char) data);
 		}
-		
+	
 	}
 }
