@@ -1,5 +1,5 @@
 # GoodeeAcademy
-GoodeeAcademy_ Boot Camp
+GoodeeAcademy_ Boot Camp_JAVA
 
 # D-DAY
 25.01.31~25.08.13
