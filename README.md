@@ -2,7 +2,7 @@
 GoodeeAcademy_ Boot Camp_JAVA
 
 # D-DAY
-25.01.31~25.08.13
+25.01.31~25.02.28
 
 ## 1M(JAVA) 🏆[회고록](https://dongin97.tistory.com/category/BootCamp)
 - 1주차 : 자바개요/설치, 변수와 자료형, 연산자, 조건문/반복문, 배열 => 
