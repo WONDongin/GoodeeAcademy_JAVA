@@ -6,11 +6,11 @@
 		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="208"/>
-		<item key="DIALOG_Y_ORIGIN" value="215"/>
-		<item key="DIALOG_WIDTH" value="525"/>
-		<item key="DIALOG_HEIGHT" value="802"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_X_ORIGIN" value="72"/>
+		<item key="DIALOG_Y_ORIGIN" value="186"/>
+		<item key="DIALOG_WIDTH" value="613"/>
+		<item key="DIALOG_HEIGHT" value="500"/>
+		<item key="DIALOG_FONT_NAME" value="1|Fira Code Medium|9.0|0|WINDOWS|1|-12|0|0|0|500|0|0|0|0|3|2|1|1|Fira Code Medium"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>
