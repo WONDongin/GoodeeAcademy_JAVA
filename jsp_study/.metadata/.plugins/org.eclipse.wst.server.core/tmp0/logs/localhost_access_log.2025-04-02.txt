@@ -423,3 +423,6 @@
 0:0:0:0:0:0:0:1 - - [02/Apr/2025:16:12:13 +0900] "GET /jspStudy/ex07_session/ex02_exam1.jsp HTTP/1.1" 200 299
 0:0:0:0:0:0:0:1 - - [02/Apr/2025:16:12:13 +0900] "GET /jspStudy/ex07_session/ex02_exam2.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [02/Apr/2025:16:12:13 +0900] "GET /jspStudy/ex07_session/ex02_exam1.jsp HTTP/1.1" 200 299
+127.0.0.1 - - [02/Apr/2025:17:40:04 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [02/Apr/2025:17:40:05 +0900] "GET /jspStudy/ex01_directive/ex01_pageDirective.jsp HTTP/1.1" 200 1341
+0:0:0:0:0:0:0:1 - - [02/Apr/2025:17:40:05 +0900] "GET /favicon.ico HTTP/1.1" 404 819

@@ -24,7 +24,7 @@ POST 방식 : <from method="POST"...> 요청
 - import      : jsp 페이지에서 사용되는 클래스의 패키지 등록
 - isErrorPage : 현재 페이지가 오류 페이지
 	
-1-2) 1include : 다른 페이지를 포함시킬때 사용되는 지시어
+1-2) include : 다른 페이지를 포함시킬때 사용되는 지시어
 - <%@ include file = "포함시킬 페이지 이름" %>
 - 2개의 jsp 페이지가 하나의 서블릿으로 생성 => 변수 공유 가능
 
@@ -73,6 +73,45 @@ jsp 에서 제공되는 내장객체 (8+1)
 8. page : 서블릿 객체. this와 같은 객체
 
 9. exception : 예외 객체. error 페이지에서만 제공되는 객체
+- error 처리 방식
+1. 해당 페이지에 errorPage="errorPage.jsg" 처리
+2. HTML error code : 404, 500 오류 발생시
+3. 예외객체별 : NumberFormatException
+4. error 처리르 안한 경우
+
+ex01_error.jsp : Integer.parseInt("abc");
+예외객체 : NumberFormatException
+예외코드 : 500
+erroPage로 설정 - 호출
+
+ex02_error.jsp : Integer.parseInt("abc");
+예외객체 : NumberFormatException - 호출
+예외코드 : 500
+
+ex02_error.jsp : str.trim(), str null값
+예외객체 : NullPointerException 
+예외코드 : 500 - 호출
+
+*우선순위가 있다. 아무 것 도 설정을 안하면 톰캣에서 제공하는 기본 에러페이지
+
+[error 페이지 설정시 우선 순위]
+
+1. 해당 페이지에서 오류 페이지 설정
+<%@ page isErrorPage = "true" %>
+
+2. web.xml에서 예외클래스 별로 설정
+	<error-page>
+  	<exception-type>java.lang.NumberFormatException</exception-type>
+  	<location>/ex09_exception/errorNumberFormat.jsp</location>
+  </error-page>
+
+3.	web.xml에서 HTTP 오류 코드로 설정
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/ex09_exception/error500.jsp</location>
+  </error-page>
+
+4. WAS에서 제공해주는 에러 페이지
 
 ================================================================
 
@@ -88,10 +127,31 @@ application 영역 : 하나의 프로젝트의 모든 jsp 페이지는 같은 �
 조회 : getAttribute
 삭제 : removeAttribute
 
+================================================================
 
+1. request : 요청객체
+setCharaterEncoding(인코딩방식)
+- 파라미터이름 : 전송페이지  
+<input name="파라미터이름"...>
+<select name="파라미터이름"...>
 
+String getParameter("파라미터이름")
+String[] getParameterValues("파라미터이름")
+getParameterNames() : 모든파라미터의 이름 Enumeration 객체 리턴
 
+2. response : 응답객체
+sendRedirect("프로젝트 내부의 페이지URL") - 같은 리퀘스트 공유x
 
+3. pageContext : 현재 페이지의 자원 관리
+forward(프로젝트 내부의 페이지URL) : 서버 내에서 다른 페이지 요청. - 같은 리퀘스트 공유
+include(프로젝트 내부의 페이지URL) : 서버 내에서 다른 페이지 포함. - 변수명 공유안됨
+
+4. session : 브라우저별로 연결관리하는 객체. 클라이언트의 상태 정보 저장가능
+setMaxInactiveInterval(초단위) : 세션유지시간. 톰캣 30분 기본으로 설정함
+setAtrribute("속성명", 객체) : 속성등록.
+Object getAtrribute("속성명") : 속성조회. 형변환필요
+removeAttribute("속성명") : 속성제거
+invalidate() : session 객체 종료. 새로운 session 객체로 치환 
 
 
 

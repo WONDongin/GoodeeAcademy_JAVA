@@ -8,9 +8,7 @@
 	<title>Insert title here</title>
 	</head>
 	<body>
-	<% 
-		String msg = "ex02_includeDirective.jsp 페이지의 msg 변수";
-	%>
+	<% String msg = "ex02_includeDirective.jsp 페이지의 msg 변수";%>
 	<h1>ex02_includeDirective.jsp 입니다.</h1>
 	
 	<%@ include file="ex02_inclubDirective2.jsp" %>
